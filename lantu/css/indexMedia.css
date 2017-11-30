@@ -1,0 +1,374 @@
+@media all and (max-width: 1500px) and (min-width: 1200px) {
+    #banner{
+        height: 500px;
+    }
+    #banner .b-part ul li.part1 .img1{
+        top: 310px;
+        left: 55px;
+    }
+    #banner .b-part ul li.part1 .img2{
+        right: 10px;
+        width: 635px;
+        height: 435px;
+    }
+    #banner .b-part ul li.part2 .img2{
+        top: 30px;
+        right: 100px;
+        width: 640px;
+        height: 446px;
+    }
+    #banner .b-part ul li.part2 .img1{
+        left: 50px;
+        top: 300px;
+        width: 306px;
+        height: 120px;
+    }
+    #banner .b-part ul li.part3 .img2{
+        left: 50px;
+        top: 0;
+        width: 640px;
+        height: 495px;
+    }
+    #banner .b-part ul li.part3 .img1{
+        top: 100px;
+        right: 100px;
+        width: 310px;
+        height: 112px;
+    }
+    #case .phone{
+        width: 1150px;
+        height: 472px;
+    }
+    #case .phone ul li{
+        width: 192px;
+    }
+    #case .phone ul li.p-le{
+        width: 240px;
+    }
+    #case .phone ul li.p-cen{
+        width: 288px;
+    }
+    #case{
+        height: 790px;
+    }
+    #case .btn>div.left{
+        left: 70px;
+    }
+    #case .btn>div.right{
+        right: 70px;
+    }
+}
+@media all and (max-width: 1200px) and (min-width: 900px){
+    #banner{
+        height: 450px;
+    }
+    #banner .b-part ul li.part1 .img1{
+        top: 310px;
+        left: 55px;
+    }
+    #banner .b-part ul li.part1 .img2{
+        right: 45px;
+        bottom: 5px;
+        width: 500px;
+        height: 380px;
+    }
+    #banner .b-part ul li.part2 .img2{
+        top: 30px;
+        right: 50px;
+        width: 550px;
+        height: 384px;
+    }
+    #banner .b-part ul li.part2 .img1{
+        left: 50px;
+        top: 200px;
+        width: 250px;
+        height: 110px;
+    }
+    #banner .b-part ul li.part3 .img2{
+        left: 30px;
+        top: 20px;
+        width: 500px;
+        height: 390px;
+    }
+    #banner .b-part ul li.part3 .img1{
+        top: 100px;
+        right: 50px;
+        width: 252px;
+        height: 100px;
+    }
+    #case .phone{
+        width: 850px;
+        height: 354px;
+    }
+    #case .phone ul li{
+        width: 144px;
+    }
+    #case .phone ul li.p-le{
+        width: 180px;
+    }
+    #case .phone ul li.p-cen{
+        width: 216px;
+    }
+    #case{
+        height: 740px;
+    }
+    #case .btn>div.left{
+        left: 60px;
+    }
+    #case .btn>div.right{
+        right: 60px;
+    }
+}
+@media all and (max-width: 900px) and (min-width: 600px){
+    #banner{
+        height: 350px;
+        margin-top: 105px;
+    }
+    #banner .b-part ul li.part1 .img1{
+        position: absolute;
+        left: 50%;
+        top: 270px;
+        width: 194px;
+        height: 80px;
+        margin-left: -97px;
+    }
+    #banner .b-part ul li.part1 .img2{
+        top: 10px;
+        left: 50%;
+        width: 330px;
+        height: 250px;
+        margin-left: -165px;
+    }
+    #banner .b-part ul li.part2 .img2{
+        top: 50px;
+        right: 10px;
+        width: 380px;
+        height: 266px;
+    }
+    #banner .b-part ul li.part2 .img1{
+        left: 30px;
+        top: 200px;
+        width: 182px;
+        height: 90px;
+    }
+    #banner .b-part ul li.part3 .img2{
+        left: 20px;
+        top: 50px;
+        width: 350px;
+        height: 270px;
+    }
+    #banner .b-part ul li.part3 .img1{
+        top: 100px;
+        right: 30px;
+        width: 200px;
+        height: 90px;
+    }
+    #case .phone{
+        width: 550px;
+        height: 354px;
+    }
+    #case .phone ul li{
+        width: 144px;
+    }
+    #case .phone ul li.p-le{
+        width: 180px;
+    }
+    #case .phone ul li.p-cen{
+        width: 216px;
+    }
+    #case{
+        height: 690px;
+    }
+    #case .btn>div.left{
+        left: 40px;
+    }
+    #case .btn>div.right{
+        right: 40px;
+    }
+    #footer .f-top{
+        width: 100%;
+        height: 440px;
+    }
+    #footer .f-top .f-brand ul li{
+        float: none;
+        margin: 20px auto 0;
+    }
+    #footer .f-top .f-brand{
+        height: auto;
+    }
+    #footer .f-top .f-brand ul{
+        width: 220px;
+        margin: 0 auto;
+    }
+    #footer .f-bottom .f-cen ul{
+        width: 100%;
+    }
+    #footer .f-bottom .f-cen ul li{
+        float: none;
+        margin: 0 auto 15px;
+    }
+    #footer .f-bottom{
+        height: 129px;
+    }
+    #footer{
+        height: 670px;
+    }
+    #footer .f-top .f-title{
+        width: 50%;
+    }
+    #footer .f-top .f-title .img1{
+        width: 61.3%;
+        height: auto;
+    }
+    #case .pic{
+        display: none;
+    }
+}
+@media all and (max-width: 600px) and (min-width: 320px) {
+    #nav .n-nav .n-index ul.n-list2{
+        display: block;
+    }
+    #nav .n-nav .n-index ul.n-list1{
+        display: none;
+    }
+    #nav{
+        height: 100px;
+        background: #fff;
+    }
+    #nav .n-nav .n-logo{
+        float: none;
+        margin: 0 auto;
+        padding-top: 20px;
+    }
+    #nav .n-nav .n-index{
+        float: none;
+        width: 480px;
+        margin: 0 auto;
+    }
+    #nav .n-nav .n-index ul.n-list2>li{
+        width: 80px;
+    }
+    #nav .n-nav .n-index{
+        width: 350px;
+    }
+    #nav .n-nav{
+        width: 100%;
+    }
+    #banner{
+        height: 400px;
+        margin-top: 105px;
+    }
+    #banner .b-part ul li.part1 .img1{
+        position: absolute;
+        left: 50%;
+        top: 294px;
+        width: 194px;
+        height: 80px;
+        margin-left: -97px;
+    }
+    #banner .b-part ul li.part1 .img2{
+        top: 20px;
+        left: 50%;
+        width: 330px;
+        height: 250px;
+        margin-left: -165px;
+    }
+    #banner .b-part ul li.part2 .img2{
+        top: 20px;
+        right: 50%;
+        width: 300px;
+        height: 210px;
+        margin-right: -150px;
+    }
+    #banner .b-part ul li.part2 .img1{
+        left: 50%;
+        top: 250px;
+        width: 200px;
+        height: 90px;
+        margin-left: -100px;
+    }
+    #banner .b-part ul li.part3 .img2{
+        left: 50%;
+        top: 0;
+        width: 302px;
+        height: 232px;
+        margin-left: -151px;
+    }
+    #banner .b-part ul li.part3 .img1{
+        top: 254px;
+        right: 50%;
+        width: 200px;
+        height: 90px;
+        margin-right: -100px;
+    }
+    #case .phone{
+        width: 200px;
+        height: 324px;
+    }
+    #case .phone ul li{
+        width: 198px;
+    }
+    #case .phone ul li.p-le{
+        width: 198px;
+    }
+    #case .phone ul li.p-cen{
+        width: 198px;
+    }
+    #case{
+        height: 690px;
+    }
+    #case .btn>div.left{
+        left: 30px;
+    }
+    #case .btn>div.right{
+        right: 30px;
+    }
+    #footer .f-top{
+        width: 100%;
+        height: 440px;
+    }
+    #footer .f-top .f-brand ul li{
+        float: none;
+        margin: 20px auto 0;
+    }
+    #footer .f-top .f-brand{
+        height: auto;
+    }
+    #footer .f-top .f-brand ul{
+        width: 100%;
+        margin: 0 auto;
+    }
+    #footer .f-bottom .f-cen ul{
+        width: 100%;
+    }
+    #footer .f-bottom .f-cen ul li{
+        float: none;
+        margin: 0 auto 15px;
+        font-size: 12px;
+    }
+    #footer .f-bottom{
+        height: 129px;
+    }
+    #footer{
+        height: 540px;
+    }
+    #footer .f-top .f-brand ul li.l1{
+        width: 36.3%;
+    }
+    #footer .f-top .f-brand ul li.l2{
+        width: 20%;
+    }
+    #footer .f-top .f-brand ul li.l3{
+        width: 35.5%;
+    }
+    #footer .f-top .f-title{
+        width: 70%;
+    }
+    #footer .f-top .f-title .img1{
+        width: 61.3%;
+        height: auto;
+    }
+    #footer .f-top .f-brand{
+        bottom: 50px;
+    }
+}

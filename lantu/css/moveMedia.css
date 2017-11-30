@@ -1,0 +1,344 @@
+@media all and (max-width: 1200px) and (min-width: 900px){
+    #cam3 .center,#cam7 .center{
+        width: 880px;
+    }
+    #cam5 .center,#cam9 .center{
+        width: 860px;
+    }
+    #cam11 .center{
+        width: 830px;
+    }
+    #cam11 .center .right{
+        width: 550px;
+    }
+}
+@media all and (max-width: 900px) {
+    #comtent{
+        margin-top: 107px;
+    }
+    /*#campus .period .img1{*/
+        /*display: none;*/
+    /*}*/
+    #campus .pant,#cam3 .pant,#cam5 .pant,#cam7 .pant,#cam9 .pant,#cam11 .pant{
+        display: none;
+    }
+    #comtent .bg{
+        background-attachment: scroll;
+        height: 300px;
+    }
+    #cam9 .center,#cam11 .center{
+        width: 100%;
+    }
+    #cam9 .center .left{
+        left: 50%;
+        bottom: 0;
+        width: 417px;
+        height: 340px;
+        transform: translate(-50%,0);
+        margin-left: 60px;
+    }
+    #cam9 .center .left .img1{
+        width: 300px;
+        height: 298px;
+    }
+    #cam11 .center .left{
+        position: static;
+        left: 0;
+        top: 50%;
+        width: 220px;
+        height: 170px;
+        margin: 0 auto;
+        padding-top: 50px;
+        transform: translate(0,0);
+    }
+    #cam11 .center .left p{
+        width: 100%;
+        text-align: center;
+        /*line-height: 40px;*/
+    }
+    #cam11 .center .right{
+        position: static;
+        right: 0;
+        top: 50%;
+        width: 400px;
+        margin: 0 auto;
+        padding-top: 40px;
+        transform: translate(0,0);
+    }
+    #cam11 .center .left .btn{
+        width: 200px;
+        margin: 0 auto;
+    }
+    #cam11 .center .left .btn ul{
+        width: 110%;
+    }
+    #cam12{
+        height: 128px;
+    }
+    #cam12 .f-cen{
+        width: 100%;
+        padding: 20px;
+    }
+    #cam12 .f-cen ul{
+        width: 100%;
+    }
+    #cam12 .f-cen ul li{
+        float: none;
+        width: 10%;
+        text-align: center;
+        margin: 0 auto;
+        line-height: 30px;
+    }
+}
+@media all and (max-width: 900px) and (min-width: 600px){
+    #campus .lantu{
+        width: 230px;
+        height: 90px;
+        margin: 15% 0 0 20%;
+    }
+    #campus .lantu .p1{
+        font-size: 35px;
+    }
+    #campus .period{
+        height: 55px;
+        line-height: 55px;
+        font-size: 14px;
+    }
+    #cam3 .center,#cam7 .center{
+        width: 100%;
+    }
+    #cam3 .center .left,#cam7 .center .left{
+        left: 50%;
+        top: 50px;
+        transform: translate(-50%,0);
+    }
+    #cam3 .center .left p,#cam7 .center .left p{
+        width: 100%;
+        text-align: center;
+    }
+    #cam3 .center .right,#cam7 .center .right{
+        right: 50%;
+        top: 40%;
+        width: 400px;
+        height: 265px;
+        transform: translate(50%,0);
+    }
+    #cam7 .center .right{
+        top: 35%;
+        width: 400px;
+        height: 324px;
+    }
+    #cam7 .center .left .p1{
+        font-size: 30px;
+    }
+    #cam3 .center .right .img1{
+        width: 350px;
+    }
+    #cam7 .center .right .img1{
+        left: 45px;
+        top: -45px;
+        width: 118px;
+        height: auto;
+        transform-origin: 30px 83px;
+    }
+    #cam5 .center{
+        width: 100%;
+    }
+    #cam5 .center .left{
+        float: none;
+        position: absolute;
+        left: 50%;
+        bottom: 0;
+        width: 550px;
+        height: 340px;
+        transform: translate(-50%,0);
+    }
+    #cam5 .center .right,#cam9 .center .right{
+        position: static;
+        right: 0;
+        top: 50%;
+        width: 240px;
+        height: 120px;
+        margin: 0 auto;
+        padding-top: 50px;
+        transform: translate(0,0);
+    }
+    #cam9 .center .right{
+        width: 270px;
+    }
+    #cam5 .center .right p,#cam9 .center .right p{
+        width: 100%;
+        text-align: center;
+        line-height: 34px;
+    }
+    #cam5 .center .right .p1,#cam9 .center .right .p1{
+        font-size: 36px;
+    }
+}
+@media all and (max-width: 600px) and (min-width: 320px){
+    #campus .lantu{
+        width: 180px;
+        height: 60px;
+        margin: 15% 0 0 18%;
+    }
+    #campus .lantu .p1{
+        font-size: 25px;
+    }
+    #campus .lantu .p2{
+        font-size: 14px;
+    }
+    #campus .period{
+        height: 40px;
+        line-height: 40px;
+        font-size: 12px;
+    }
+    #cam3,#cam7{
+        height: 480px;
+    }
+    #cam3 .center,#cam7 .center{
+        width: 100%;
+    }
+    #cam3 .center .left,#cam7 .center .left{
+        left: 50%;
+        top: 40px;
+        transform: translate(-50%,0);
+    }
+    #cam7 .center .left{
+        transform: translate(-50%,0);
+    }
+    #cam3 .center .left p,#cam7 .center .left p{
+        width: 100%;
+        text-align: center;
+        font-size: 14px;
+        line-height: 30px;
+    }
+    #cam3 .center .left .p1,#cam7 .center .left .p1{
+        font-size: 25px;
+        margin-bottom: 6px;
+    }
+    #cam3 .center .right,#cam7 .center .right{
+        right: 50%;
+        top: 40%;
+        width: 300px;
+        height: 198px;
+        transform: translate(50%,0);
+    }
+    #cam3 .center .right .img1{
+        width: 270px;
+    }
+    #cam5{
+        height: 650px;
+    }
+    #cam5 .center {
+        width: 100%;
+    }
+    #cam5 .center .left{
+        float: none;
+        position: absolute;
+        left: 50%;
+        bottom: 0;
+        width: 300px;
+        height: 490px;
+        transform: translate(-50%,0);
+    }
+    #cam5 .center .right,#cam9 .center .right{
+        position: absolute;
+        right: 50%;
+        top: 40px;
+        width: 190px;
+        height: 90px;
+        transform: translate(50%,0);
+    }
+    #cam9 .center .right{
+        width: 210px;
+    }
+    #cam5 .center .right p, #cam9 .center .right p{
+        width: 100%;
+        text-align: center;
+        line-height: 26px;
+        font-size: 14px;
+    }
+    #cam5 .center .right .p1,#cam9 .center .right .p1{
+        font-size: 24px;
+    }
+    #cam5 .center .left .btn{
+        right: 50%;
+        top: 320px;
+        width: 300px;
+        transform: translate(50%,0);
+        padding-left: 40px;
+    }
+    #cam5 .center .left .btn ul li{
+        float: left;
+        height: 30px;
+        width: 70px;
+        font-size: 20px;
+        line-height: 30px;
+        margin-right: 40px;
+    }
+    #cam5 .center .left .pic{
+        top: 0;
+        left: 50%;
+        width: 280px;
+        height: 280px;
+        transform: translate(-50%,0);
+    }
+    #cam5 .center .left .btn ul li span.show{
+        color: #b6d230;
+        font-size: 16px;
+    }
+    #cam5 .center .left .btn ul li span{
+        font-size: 16px;
+    }
+    #cam7 .center .right{
+        top: 35%;
+        width: 300px;
+        height: 243px;
+    }
+    #cam7 .center .right .img1{
+        left: 32px;
+        top: -30px;
+        width: 85px;
+        height: auto;
+        transform-origin: 22px 58px;
+    }
+    #cam9,#cam11{
+        height: 480px;
+    }
+    #cam9 .center .left{
+        left: 50%;
+        bottom: 70px;
+        width: 318px;
+        height: 259px;
+        transform: translate(-50%,0);
+        margin-left: 50px;
+    }
+    #cam9 .center .left .img1{
+        width: 230px;
+        height: 228px;
+    }
+    #cam11 .center .left{
+        position: static;
+        left: 0;
+        top: 50%;
+        width: 220px;
+        height: 170px;
+        margin: 0 auto;
+        padding-top: 50px;
+        transform: translate(0,0);
+    }
+    #cam11 .center .left p{
+        font-size: 14px;
+        line-height: 40px;
+    }
+    #cam11 .center .left .p1{
+        font-size: 24px;
+    }
+    #cam11 .center .right{
+        width: 300px;
+        padding-top: 20px;
+    }
+    #cam12 .f-cen ul li{
+        font-size: 12px;
+    }
+}

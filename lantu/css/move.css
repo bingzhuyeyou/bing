@@ -1,0 +1,363 @@
+#comtent{
+    margin-top: 67px;
+}
+#campus{
+    position: relative;
+    background: url("../img/campus/bg1.jpg")no-repeat center center/cover;
+}
+#campus .period{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 110px;
+    line-height: 110px;
+    text-align: center;
+    color: #fff;
+    font-size: 20px;
+    background: rgba(255,255,255,.4);
+}
+#campus .period .img1{
+    position: absolute;
+    left: 50%;
+    top: -24px;
+    width: 48px;
+    height: 48px;
+    margin-left: -24px;
+    cursor: pointer;
+}
+#campus .lantu{
+    float: left;
+    position: relative;
+    width: 280px;
+    height: 94px;
+    margin: 15% 0 0 30%;
+}
+#campus .lantu p{
+    position: absolute;
+    color: #fff;
+}
+#campus .lantu .p1{
+    left: 0;
+    top: 0;
+    font-size: 46px;
+}
+#campus .lantu .p2{
+    right: 0;
+    bottom: 0;
+    font-size: 18px;
+}
+#comtent .bg{
+    width: 100%;
+    height: 420px;
+    background-image: url("../img/campus/bg2.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+}
+#comtent #cam4{
+    background-image: url("../img/campus/bg3.jpg");
+}
+#comtent #cam6{
+    background-image: url("../img/campus/bg4.jpg");
+}
+#comtent #cam8{
+    background-image: url("../img/campus/bg5.jpg");
+}
+#comtent #cam10{
+    background-image: url("../img/campus/bg6.jpg");
+}
+#cam3{
+    position: relative;
+    width: 100%;
+    height: 530px;
+}
+#cam3 .center,#cam7 .center{
+    position: relative;
+    width: 1000px;
+    height: 100%;
+    margin: 0 auto;
+}
+#cam3 .center .left,#cam7 .center .left{
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 300px;
+    transform: translate(0,-50%);
+}
+#cam3 .center .left p,#cam7 .center .left p{
+    color: #0080ba;
+    font-size: 18px;
+    line-height: 40px;
+}
+#cam3 .center .left .p1,#cam7 .center .left .p1{
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+#cam3 .center .right,#cam7 .center .right{
+    position: absolute;
+    right: 0;
+    top: 50%;
+    width: 530px;
+    height: 351px;
+    background: url("../img/campus/m3.png")center center/cover;
+    transform: translate(0,-50%);
+}
+#cam3 .center .right .img1,#cam7 .center .right .img1{
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 461px;
+    height: auto;
+    margin: auto;
+    transform: rotate(0deg);
+    animation: guodan 20s linear infinite;
+}
+
+#cam5,#cam7,#cam9,#cam11{
+    position: relative;
+    width: 100%;
+    height: 530px;
+    background: #f0f2f5;
+}
+#cam5 .center,#cam9 .center,#cam11 .center{
+    position: relative;
+    width: 990px;
+    height: 100%;
+    margin: 0 auto;
+}
+#cam5 .center .left{
+    float: left;
+    position: relative;
+    width: 550px;
+    height: 100%;
+}
+#cam5 .center .left .pic{
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 324px;
+    height: 324px;
+    transform: translate(0,-50%);
+}
+#cam5 .center .left .pic ul{
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+}
+#cam5 .center .left .pic ul li{
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat ;
+    background-image: url("../img/campus/m5.png");
+    background-position-x: 100%;
+    background-size: cover;
+}
+#cam5 .center .left .pic ul li.l1{
+    background-position-y: 0;
+}
+#cam5 .center .left .pic ul li.l2{
+    background-position-y: 12.5%;
+}
+#cam5 .center .left .pic ul li.l3{
+    background-position-y: 25%;
+}
+#cam5 .center .left .pic ul li.l4{
+    background-position-y: 37.5%;
+}
+#cam5 .center .left .pic ul li.l5{
+    background-position-y: 50%;
+}
+#cam5 .center .left .pic ul li.l6{
+    background-position-y: 62.5%;
+}
+#cam5 .center .left .pic ul li.l7{
+    background-position-y: 75%;
+}
+#cam5 .center .left .pic ul li.l8{
+    background-position-y: 87.5%;
+}
+#cam5 .center .left .pic ul li.l9{
+    background-position-y: 100%;
+}
+#cam5 .center .left .btn{
+    position: absolute;
+    right: 0;
+    top: 50%;
+    width: 100px;
+    transform: translate(0,-50%);
+}
+#cam5 .center .left .btn ul{
+    width: 110%;
+}
+#cam5 .center .left .btn ul li{
+    height: 30px;
+    width: 100%;
+    list-style: disc;
+    color: #b6d230;
+    font-size: 28px;
+    line-height: 30px;
+    margin-bottom: 5px;
+}
+#cam5 .center .left .btn ul li span{
+    color: #0080BA;
+    font-size: 20px;
+    transition: .5s;
+    cursor: pointer;
+}
+#cam5 .center .left .btn ul li span.show{
+    font-size: 26px;
+}
+#cam5 .center .right,#cam9 .center .right{
+    position: absolute;
+    right: 0;
+    top: 50%;
+    width: 240px;
+    height: 120px;
+    transform: translate(0,-50%);
+}
+#cam5 .center .right p,#cam9 .center .right p{
+    color: #0080ba;
+    font-size: 18px;
+    line-height: 40px;
+}
+#cam5 .center .right .p1,#cam9 .center .right .p1{
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+#cam5 .pant,#cam3 .pant,#cam7 .pant,#cam9 .pant,#campus .pant{
+    position: absolute;
+    left: 50%;
+    bottom: -23px;
+    width: 46px;
+    height: 46px;
+    background: url("../img/campus/a_d.png") center center/cover;
+    margin-left: -23px;
+    cursor: pointer;
+}
+#campus .pant{
+    bottom: 87px;
+}
+#cam7 .center .right{
+    width: 530px;
+    height: 430px;
+    background-image: url("../img/campus/dow1.png");
+}
+#cam7 .center .right .img1{
+    left: 60px;
+    top: -60px;
+    width: 157px;
+    height: 163px;
+    transform-origin: 40px 108px;
+    animation: guodan 60s linear infinite;
+}
+#cam9 .center{
+    width: 1000px;
+}
+#cam9 .center .right{
+    width: 270px;
+}
+#cam9 .center .left{
+    position: absolute;
+    left: 0;
+    bottom: 10px;
+    width: 555px;
+    height: 452px;
+    background: url("../img/campus/dow2.png")center center/cover;
+}
+#cam9 .center .left .img1{
+    position: absolute;
+    top: -3px;
+    left: -2px;
+    width: 400px;
+    height: 397px;
+    animation: guodan 30s linear infinite;
+}
+#cam11 .center .left{
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 220px;
+    height: 170px;
+    transform: translate(0,-50%);
+}
+#cam11 .center .left p{
+    color: #0080ba;
+    font-size: 20px;
+    line-height: 50px;
+}
+#cam11 .center .left .p1{
+    font-size: 40px;
+}
+#cam11 .center .left .btn{
+    width: 100%;
+    height: 60px;
+}
+#cam11 .center .left .btn ul li{
+    float: left;
+    width: 35px;
+    height: 100%;
+    margin-right: 20px;
+}
+#cam11 .center .left .btn ul li span{
+    color: #0080ba;
+    font-size: 16px;
+}
+#cam11 .center .left .btn ul li img{
+    display: block;
+    width: 35px;
+    height: 35px;
+    padding-top: 8px;
+}
+#cam11 .center .right{
+    position: absolute;
+    right: 0;
+    top: 50%;
+    width: 668px;
+    transform: translate(0,-50%);
+}
+#cam11 .center .right img{
+    width: 100%;
+}
+#cam12{
+    width: 100%;
+    height: 77px;
+    background: url("../img/campus/bgg1.jpg")center center/cover;
+}
+#cam12 .f-cen{
+    width: 690px;
+    height: 20px;
+    margin: 0 auto;
+    padding-top: 26px;
+}
+#cam12 .f-cen ul{
+    width: 120%;
+    height: 20px;
+}
+#cam12 .f-cen ul li{
+    float: left;
+    color: #fff;
+    margin-right: 50px;
+    font-size: 16px;
+    text-align: center;
+}
+#cam12 .f-cen ul li.l1{
+    width: 230px;
+}
+#cam12 .f-cen ul li.l2{
+    width: 170px;
+}
+#cam12 .f-cen ul li.l3{
+    width: 195px;
+}
+@keyframes guodan {
+    from{transform:rotate(0deg)}
+    to{transform:rotate(360deg)}
+}

@@ -1,0 +1,370 @@
+body{
+    min-width: 320px;
+}
+/*#nav start*/
+
+/*#nav end*/
+
+/*#banner start*/
+#banner{
+    position: relative;
+    width: 100%;
+    height: 850px;
+    margin-top: 65px;
+}
+#banner .b-part{
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+#banner .b-part ul{
+    width: 100%;
+    height: 100%;
+}
+#banner .b-part ul li{
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: url("../img/banner/bg1-1.png") 0 0/100% 100%;
+}
+#banner .b-part ul li.part1{
+    background-image: url("../img/banner/bg1-1.png");
+}
+#banner .b-part ul li.part2{
+    background-image: url("../img/banner/bg2-1.jpg");
+}
+#banner .b-part ul li.part3{
+    background-image: url("../img/banner/bg3-1.jpg");
+}
+#banner .b-part ul li.part2 .img1{
+    position: absolute;
+    left: 100px;
+    top: 500px;
+    width: 306px;
+    height: 120px;
+}
+#banner .b-part ul li.part2 .img1 p{
+    width: 100%;
+    margin: 12px 0;
+}
+#banner .b-part ul li.part2 .img1 p img{
+    display: block;
+    width: 100%;
+    height: auto;
+}
+#banner .b-part ul li.part2 .img1 p.p3{
+    padding: 4px 2px;
+}
+#banner .b-part ul li.part2 .img1 .p3{
+    background: #b3cd35;
+    border-radius: 5px;
+}
+#banner .b-part ul li.part2 .img2{
+    position: absolute;
+    top: 100px;
+    right: 50px;
+    width: 940px;
+    height: 652px;
+    background: url("../img/banner/bg2-4.png")0 0/100% 100%;
+}
+#banner .b-part ul li.part1 .img1{
+    position: absolute;
+    left: 100px;
+    top: 510px;
+    width: 300px;
+    height: 120px;
+    background: url("../img/banner/bg1-2.png")0 0/100% 100%;
+}
+#banner .b-part ul li.part1 .img2{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 988px;
+    height: 750px;
+    background: url("../img/banner/bg1-3.png") 0 0/100% 100%;
+}
+#banner .b-part ul li.part3 .img2{
+    position: absolute;
+    left: 70px;
+    top: 120px;
+    width: 777px;
+    height: 600px;
+    background: url("../img/banner/bg3-2.png")0 0/100% 100%;
+}
+#banner .b-part ul li.part3 .img1{
+    position: absolute;
+    top: 200px;
+    right: 200px;
+    width: 310px;
+    height: 112px;
+}
+#banner .b-part ul li.part3 .img1 p{
+    width: 100%;
+    margin: 12px 0;
+}
+#banner .b-part ul li.part3 .img1 p img{
+    display: block;
+    width: 100%;
+    height: auto;
+}
+#banner .b-part ul li.part3 .img1 .p3{
+    background: #b3cd35;
+    border-radius: 5px;
+}
+#banner .b-part ul li.part3 .img1 p.p3{
+    padding: 4px 2px;
+}
+#banner .btn{
+    position: absolute;
+    left: 50%;
+    bottom: 44px;
+    width: 64px;
+    height: 10px;
+    margin-left: -32px;
+}
+#banner .btn ul{
+    width: 120%;
+    height: 100%;
+}
+#banner .btn ul li{
+    float: left;
+    width: 6px;
+    height: 6px;
+    background: #006597;
+    border: 2px solid #006597;
+    border-radius: 100%;
+    margin-right: 15px;
+    cursor: pointer;
+}
+#banner .btn ul li.show{
+    background: transparent;
+    border-color: #a7c31e;
+}
+/*#banner end*/
+
+/*#case start*/
+#case{
+    position: relative;
+    width: 100%;
+    height: 920px;
+    background: url("../img/banner/bg.png") 0 0/100% 100%;
+}
+#case .c-title{
+    position: relative;
+    width: 521px;
+    height: 100px;
+    margin: 0 auto;
+    padding-top: 40px;
+}
+#case .c-title .img1{
+    position: absolute;
+    left: 50%;
+    top: 40px;
+    width: 235px;
+    height: 15px;
+    margin-left: -117px;
+}
+#case .c-title .img2{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 8px;
+}
+#case .c-title h1{
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    font-size: 26px;
+    text-align: center;
+    transform: translate(0,50%);
+    margin-top: -20px;
+}
+/*#case .btn{*/
+    /*width: 100%;*/
+    /*height: 100%;*/
+/*}*/
+#case .btn>div{
+    position: absolute;
+    top: 50%;
+    width: 48px;
+    height: 48px;
+    background-position: 0 0;
+    cursor: pointer;
+}
+#case .btn>div.left{
+    left: 80px;
+    background-image: url("../img/banner/t_l.png");
+}
+#case .btn>div.right{
+    right: 80px;
+    background-image: url("../img/banner/t_r.png");
+}
+#case .phone{
+    overflow: hidden;
+    position: relative;
+    width: 1450px;
+    height: 590px;
+    margin: 70px auto 0;
+}
+#case .phone ul{
+    position: absolute;
+    left: 50%;
+    top: 0;
+    width: 500%;
+    height: 100%;
+}
+#case .phone ul li{
+    float: left;
+    position: relative;
+    top: 50%;
+    left: 0;
+    width: 240px;
+    transform: translate(0,-50%);
+    transition: width .3s ,height .3s;
+}
+#case .phone ul li.p-cen{
+    width: 360px;
+}
+#case .phone ul li.p-le{
+    width: 300px;
+}
+#case .phone ul li img{
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+#case .pic{
+    position: absolute;
+    left: 50%;
+    bottom: 40px;
+    transform: translate(-50%,0);
+}
+#case .pic ul li{
+    float: left;
+    width: 10px;
+    height: 10px;
+    background: #488fb2;
+    border: 2px solid #488fb2;
+    border-radius: 100%;
+    margin-right: 20px;
+    cursor: pointer;
+}
+#case .pic ul li.show{
+    border-color: #a7c31e;
+    background: transparent;
+}
+/*#case end*/
+
+/*#footer start*/
+#footer{
+    position: relative;
+    width: 100%;
+    height: 630px;
+}
+#footer .f-top{
+    position: relative;
+    width: 790px;
+    height: 340px;
+    margin: 0 auto;
+}
+#footer .f-top .f-title{
+    overflow: hidden;
+    position: relative;
+    width: 521px;
+    height: 100px;
+    margin: 0 auto;
+    padding-top: 80px;
+}
+#footer .f-top .f-title .img1{
+    position: absolute;
+    left: 50%;
+    top: 80px;
+    width: 260px;
+    height: 15px;
+    transform: translate(-50%,0);
+}
+#footer .f-top .f-title .img2{
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    width: 521px;
+    height: 8px;
+    transform: translate(-50%,0);
+}
+#footer .f-top .f-title h1{
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    font-size: 20px;
+    text-align: center;
+    transform: translate(0,100%);
+}
+#footer .f-top .f-brand{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 52px;
+}
+#footer .f-top .f-brand ul{
+    width: 120%;
+    height: 100%;
+}
+#footer .f-top .f-brand ul li{
+    float: left;
+    height: auto;
+    margin-right: 120px;
+}
+#footer .f-top .f-brand ul li img{
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+#footer .f-top .f-brand ul li.l1{
+    width: 218px;
+}
+#footer .f-top .f-brand ul li.l2{
+    width: 120px;
+}
+#footer .f-top .f-brand ul li.l3{
+    width: 213px;
+}
+#footer .f-bottom{
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 1710px;
+    height: 88px;
+    margin-left: -855px;
+    border-top: 1px solid #e6e6e6;
+}
+#footer .f-bottom .f-cen{
+    width: 690px;
+    height: 20px;
+    margin: 20px auto 0;
+}
+#footer .f-bottom .f-cen ul{
+    width: 120%;
+    height: 20px;
+}
+#footer .f-bottom .f-cen ul li{
+    float: left;
+    color: #c2c2c2;
+    margin-right: 50px;
+    font-size: 16px;
+    text-align: center;
+}
+#footer .f-bottom .f-cen ul li.l1{
+    width: 230px;
+}
+#footer .f-bottom .f-cen ul li.l2{
+    width: 170px;
+}
+#footer .f-bottom .f-cen ul li.l3{
+    width: 195px;
+}
+/*#footer end*/

@@ -1,0 +1,82 @@
+
+#nav{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background: #e9ebee;
+    box-shadow: 0 1px 2px 1px rgba(200,200,200,.8);
+    z-index: 999;
+}
+#nav .n-nav{
+    max-width: 1100px;
+    height: 100%;
+    margin: 0 auto;
+    width: 90%;
+}
+#nav .n-nav .n-logo{
+    float: left;
+    width: 132px;
+    height: 37px;
+    padding-top: 11px;
+}
+#nav .n-nav .n-index{
+    float: left;
+    height: 100%;
+    margin-left: 100px;
+}
+#nav .n-nav .n-index>ul>li{
+    float: left;
+    position: relative;
+    width: 140px;
+    height: 100%;
+    line-height: 60px;
+    text-align: center;
+}
+#nav .n-nav .n-index>ul>li>a{
+    color: #000;
+    font-size: 15px;
+}
+#nav .n-nav .n-index ul li.show a{
+    color: #A7C31E;
+}
+#nav .n-nav .n-index ul li a:hover{
+    color: #A7C31E;
+}
+#nav .n-nav .n-index ul.n-list2{
+    display: none;
+}
+#nav .n-nav .n-index>ul.n-list2>li{
+    width: 120px;
+    height: 40px;
+    line-height: 40px;
+}
+#nav .n-nav .n-index ul.n-list2>li.list-hide{
+    font-size: 15px;
+    cursor: pointer;
+    user-select: none;
+}
+#nav .n-nav .n-index ul.n-list2>li.list-hide .n-hide{
+    display: none;
+    position: absolute;
+    left: -10px;
+    top: 38px;
+    width: 100px;
+    background: #fff;
+    border: 1px solid #000;
+    border-radius: 5px;
+}
+#nav .n-nav .n-index ul.n-list2>li.list-hide img{
+    width: 13px;
+    height: 13px;
+    margin-left: 2px;
+}
+#nav .n-nav .n-index ul.n-list2>li.list-hide .n-hide>.n-ul>li{
+    padding: 10px;
+    line-height: 15px;
+    cursor: pointer;
+}
+#nav .n-nav .n-index ul.n-list2>li.list-hide .n-hide>.n-ul>li:hover{
+    color: #A7C31E;
+}
