@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="Author" content="Fly">
+    <title>Title</title>
+    <style type="text/css">
+        @font-face {
+            font-family: MyCustomFont;
+            src: url("font/fontdb.ttf") /* TTF file for CSS3 browsers */
+        }
+        *{font-family: "MyCustomFont",serif;}
+    </style>
+    <link rel="stylesheet" href="css/reset.css" type="text/css">
+    <link rel="stylesheet" href="css/index.css" type="text/css">
+    <link rel="stylesheet" href="font/iconfont/iconfont.css" type="text/css">
+    <script src="js/jquery-3.2.1-min.js"></script>
+    <script src="js/jquery-mousewheel-3.1.13-min.js"></script>
+</head>
+<body>
+    <div id="box">
+        <!--head start 头部搜索框部分-->
+        <div class="head">
+            <div class="left">
+                <div class="logo">
+                    <span></span>
+                    <em>小谢专用版</em>
+                </div>
+                <div class="seek">
+                    <input type="text" id="seek">
+                    <em id="textem">搜索音乐，视频，歌词，电台</em>
+                    <i class="iconfont icon-sousuo" id="sou"></i>
+                </div>
+            </div>
+            <div class="right">
+                <div class="derma" id="derma">
+                    <div class="der-i">
+                        <i class="iconfont icon-yonghu"></i>
+                        <img src="#" alt="">
+                    </div>
+                    <p>未登录</p>
+                    <div class="reg-quit">
+                        <div class="quit quit-delete">
+                            <i class="iconfont icon-chuyidong"></i>
+                            <b>删除当前账号</b>
+                        </div>
+                        <div class="quit quit-quit">
+                            <i class="iconfont icon-92"></i>
+                            <b>退出当前账号</b>
+                        </div>
+                    </div>
+                </div>
+                <div class="shrink">
+                    <i class="iconfont icon-suoxiao"></i>
+                </div>
+                <div class="magnify">
+                    <i class="iconfont icon-btn_full_nor"></i>
+                </div>
+            </div>
+        </div>
+        <!--head end-->
+
+        <!-- middle start -->
+        <div class="middle">
+            <div class="left">
+                <div class="top">
+                    <div class="list">
+                        <i class="iconfont icon-paihangbang"></i>
+                        <em>排行榜</em>
+                    </div>
+                    <ul id="topli">
+                        <!--<li class="li1 borshow">-->
+                            <!--<i class="iconfont icon-yinle21"></i><em>k歌金曲</em>-->
+                        <!--</li>-->
+                        <!--<li class="li2">-->
+                            <!--<i class="iconfont icon-yinle3"></i><em>k歌金曲</em>-->
+                        <!--</li>-->
+                        <!--<li class="li3">-->
+                            <!--<i class="iconfont icon-yinle-copy"></i><em>k歌金曲</em>-->
+                        <!--</li>-->
+                        <!--<li class="li4">-->
+                            <!--<i class="iconfont icon-mmp"></i><em>k歌金曲</em>-->
+                        <!--</li>-->
+                        <!--<li class="li5">-->
+                            <!--<i class="iconfont icon-ic_my_library_music_"></i><em>k歌金曲</em>-->
+                        <!--</li>-->
+                        <!--<li class="li6">-->
+                            <!--<i class="iconfont icon-yinle2"></i><em>k歌金曲</em>-->
+                        <!--</li>-->
+                        <!--<li class="li7">-->
+                            <!--<i class="iconfont icon-yinle1"></i><em>k歌金曲</em>-->
+                        <!--</li>-->
+                        <!--<li class="li8">-->
+                            <!--<i class="iconfont icon-yinle"></i><em>k歌金曲</em>-->
+                        <!--</li>-->
+                        <!--<li class="li9">-->
+                            <!--<i class="iconfont icon-yinlehe"></i><em>k歌金曲</em>-->
+                        <!--</li>-->
+                        <!--<li class="li10">-->
+                            <!--<i class="iconfont icon-66713"></i><em>k歌金曲</em>-->
+                        <!--</li>-->
+                    </ul>
+                </div>
+                <div class="middle" id="establish">
+                    <div class="list">
+                        <em>创建的歌单</em>
+                        <i class="iconfont icon-shouqi icon-shou"></i>
+                    </div>
+                    <ul>
+                        <li class="li1">
+                            <i class="iconfont icon-iconxihuan"></i>
+                            <em>我喜欢的音乐</em>
+                        </li>
+                    </ul>
+                </div>
+                <div class="bottom" id="describe">
+                    <div class="back">
+                        <i class="extend iconfont icon-fangda"></i>
+                    </div>
+                    <div class="desc">
+                        <p class="p1">认真的老去</p>
+                        <p class="p2">张希 / 曹方</p>
+                    </div>
+                    <i class="iconfont icon-xihuan1 icon-iconxihuan"></i>
+                </div>
+            </div>
+            <div class="right">
+                <div class="home" id="home">
+                    <!--<div class="coll">-->
+                        <!--<div class="coltop">-->
+                            <!--<div class="coleft">-->
+                                <!--<i class="cover iconfont icon-xihuan"></i>-->
+                            <!--</div>-->
+                            <!--<div class="coright">-->
+                                <!--<b>云音乐欧美榜</b>-->
+                                <!--<div class="update">-->
+                                    <!--<i class="iconfont icon-wangyiyunyinle"></i>-->
+                                    <!--<em>最近更新时间：10月21日</em>-->
+                                <!--</div>-->
+                                <!--<p>简讯：云音乐中欧美最热的的100首单曲，每日更新。</p>-->
+                                <!--<span class="list">歌曲列表</span>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                        <!--<div class="column">-->
+                            <!--<div class="xulie">序列号</div>-->
+                            <!--<div class="mictit">音乐标题</div>-->
+                            <!--<div class="micname">歌手</div>-->
+                            <!--<div class="zuanji">专辑</div>-->
+                            <!--<div class="time">时间</div>-->
+                        <!--</div>-->
+                        <!--<ul class="classify">-->
+                            <!--<li class="li1">-->
+                                <!--<div class="xulie">序列号</div>-->
+                                <!--<div class="mictit">音乐标题</div>-->
+                                <!--<div class="micname">歌手</div>-->
+                                <!--<div class="zuanji">专辑</div>-->
+                                <!--<div class="mctime">03:40</div>-->
+                            <!--</li>-->
+                            <!--<li class="li2">-->
+                                <!--<div class="xulie">序列号</div>-->
+                                <!--<div class="mictit">音乐标题</div>-->
+                                <!--<div class="micname">歌手</div>-->
+                                <!--<div class="zuanji">专辑</div>-->
+                                <!--<div class="mctime">03:40</div>-->
+                            <!--</li>-->
+                            <!--<li class="li2">-->
+                                <!--<div class="xulie">序列号</div>-->
+                                <!--<div class="mictit">音乐标题</div>-->
+                                <!--<div class="micname">歌手</div>-->
+                                <!--<div class="zuanji">专辑</div>-->
+                                <!--<div class="mctime">03:40</div>-->
+                            <!--</li>-->
+                        <!--</ul>-->
+                    <!--</div>-->
+                </div>
+                <div class="homeseek home" id="homeseek">
+                    <!--<div class="coll">-->
+                        <!--<div class="coltop">-->
+                            <!--<p class="colp">搜索<span>"认真的老去"</span>，找到15首单曲</p>-->
+                            <!--<div class="coright">-->
+                                <!--<span class="list">歌曲列表</span>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                        <!--<div class="column">-->
+                            <!--<div class="xulie">序列号</div>-->
+                            <!--<div class="mictit">音乐标题</div>-->
+                            <!--<div class="micname">歌手</div>-->
+                            <!--<div class="zuanji">专辑</div>-->
+                            <!--<div class="time">时间</div>-->
+                        <!--</div>-->
+                        <!--<ul class="classify">-->
+                            <!--<li class="li1">-->
+                                <!--<div class="xulie">序列号</div>-->
+                                <!--<div class="mictit">音乐标题</div>-->
+                                <!--<div class="micname">歌手</div>-->
+                                <!--<div class="zuanji">专辑</div>-->
+                                <!--<div class="mctime">03:40</div>-->
+                            <!--</li>-->
+                            <!--<li class="li2">-->
+                                <!--<div class="xulie">序列号</div>-->
+                                <!--<div class="mictit">音乐标题</div>-->
+                                <!--<div class="micname">歌手</div>-->
+                                <!--<div class="zuanji">专辑</div>-->
+                                <!--<div class="mctime">03:40</div>-->
+                            <!--</li>-->
+                            <!--<li class="li2">-->
+                                <!--<div class="xulie">序列号</div>-->
+                                <!--<div class="mictit">音乐标题</div>-->
+                                <!--<div class="micname">歌手</div>-->
+                                <!--<div class="zuanji">专辑</div>-->
+                                <!--<div class="mctime">03:40</div>-->
+                            <!--</li>-->
+                        <!--</ul>-->
+                    <!--</div>-->
+                </div>
+                <div class="homelike home" id="homelike">
+                    <div class="coll">
+                        <div class="coltop">
+                            <div class="coleft">
+                                <i class="cover iconfont icon-xihuan"></i>
+                            </div>
+                            <div class="coright">
+                                <b>我喜欢的音乐</b>
+                                <div class="update">
+                                    <div class="updateimg">
+                                        <i class="iconfont icon-yonghu"></i>
+                                        <img src="#" alt="">
+                                    </div>
+                                    <div class="updatediv">
+                                        <b>未登录</b>
+                                        <em>0000 - 00 - 00 创建</em>
+                                    </div>
+                                </div>
+                                <p>简讯：本采用localStorage永久性储存，谷歌最大存储量只有2.6m,所以每个账号存储的音乐最好在30首之内。</p>
+                                <span class="list">歌曲列表</span>
+                            </div>
+                        </div>
+                        <div class="column">
+                            <div class="xulie">序列号</div>
+                            <div class="caozuo">操作</div>
+                            <div class="mictit">音乐标题</div>
+                            <div class="micname">歌手</div>
+                            <div class="zuanji">专辑</div>
+                            <div class="time">时间</div>
+                        </div>
+                        <ul class="classify">
+                            <!--<li class="li1">-->
+                                <!--<div class="xulie">序列号</div>-->
+                                <!--<div class="caozuo">-->
+                                    <!--<i class="iconfont icon-xihuan1"></i>-->
+                                    <!--<i class="iconfont icon-xiazai"></i>-->
+                                <!--</div>-->
+                                <!--<div class="mictit">音乐标题</div>-->
+                                <!--<div class="micname">歌手</div>-->
+                                <!--<div class="zuanji">专辑</div>-->
+                                <!--<div class="mctime">03:40</div>-->
+                            <!--</li>-->
+                            <!--<li class="li2">-->
+                                <!--<div class="xulie">序列号</div>-->
+                                <!--<div class="caozuo">-->
+                                    <!--<i class="iconfont icon-xihuan1"></i>-->
+                                    <!--<i class="iconfont icon-xiazai"></i>-->
+                                <!--</div>-->
+                                <!--<div class="mictit">音乐标题</div>-->
+                                <!--<div class="micname">歌手</div>-->
+                                <!--<div class="zuanji">专辑</div>-->
+                                <!--<div class="mctime">03:40</div>-->
+                            <!--</li>-->
+                            <!--<li class="li2">-->
+                                <!--<div class="xulie">序列号</div>-->
+                                <!--<div class="caozuo">-->
+                                    <!--<i class="iconfont icon-xihuan1"></i>-->
+                                    <!--<i class="iconfont icon-xiazai"></i>-->
+                                <!--</div>-->
+                                <!--<div class="mictit">音乐标题</div>-->
+                                <!--<div class="micname">歌手</div>-->
+                                <!--<div class="zuanji">专辑</div>-->
+                                <!--<div class="mctime">03:40</div>-->
+                            <!--</li>-->
+                        </ul>
+                    </div>
+                </div>
+                <div class="homebon bgbon" id="boq">
+                    <div class="bon">
+                        <div class="qiu"></div>
+                        <div class="yin"></div>
+                        <div class="listload">正在加载中...</div>
+                    </div>
+                </div>
+                <div class="scroll">
+                    <div class="roll" id="roll">
+                        <div class="down"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 歌词的弹窗 -->
+            <div class="lyric" id="lyric">
+                <div class="ground">
+                    <div class="gather">
+                        <div class="lyleft">
+                            <div class="gattop"></div>
+                            <div class="gatcen">
+                                <div class="bgtu"></div>
+                            </div>
+                            <div class="gatbot">
+                                <ul>
+                                    <li>
+                                        <i class="iconfont icon-xihuan1 icon-xihuan"></i>
+                                        <span>喜欢</span>
+                                    </li>
+                                    <li>
+                                        <i class="iconfont icon-xiazai"></i>
+                                        <span>下载</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="lyright">
+                            <div class="rigtop">
+                                <p class="p1">再见</p>
+                                <ul>
+                                    <li><span>专辑：</span><em>再见</em></li>
+                                    <li><span>歌手：</span><em>陈雪凝</em></li>
+                                    <li><span>来源：</span><em>云音乐飙升榜</em></li>
+                                </ul>
+                            </div>
+                            <div class="rigbot">
+                                <div class="rbot">
+                                    <div class="geci"></div>
+                                </div>
+                                <div class="scroll">
+                                    <div class="roll">
+                                        <div class="down"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <i class="shrik iconfont icon-suoxiao1"></i>
+            </div>
+        </div>
+        <!-- middle end -->
+
+        <!-- footer 底部乐播放部分||进度条||音量 -->
+        <div class="footer" id="footer">
+            <!--播放和暂停||上一曲||下一曲-->
+            <div class="right">
+                <i class="iconfont icon-xiayiqu1 icon1"></i>
+                <i class="iconfont icon-bofang icon2"></i>
+                <i class="iconfont icon-xiayiqu1 icon1"></i>
+            </div>
+
+            <!-- 进度条部分 -->
+            <div class="center" id="schdule">
+                <div class="statime time">
+                    <span>00:00</span>
+                </div>
+                <div class="plan">
+                    <div class="playmove" id="schedule">
+                        <div class="jindu">
+                            <div class="down"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="endtime time">
+                    <span>05:00</span>
+                </div>
+            </div>
+
+            <!-- 音量进度条部分 -->
+            <div class="left">
+                <i class="iconfont icon-shengyin-copy" id="volume"></i>
+                <div class="plan">
+                    <div class="playmove" id="sound">
+                        <div class="jindu">
+                            <div class="down"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- footer end -->
+
+        <!-- 注册登录 strat -->
+        <div id="register">
+            <div class="reg-box">
+                <div class="register">
+                    <p class="reg-app">注意：未检测到你有注册过账号,请选择注册</p>
+                    <div class="regis enter">登录</div>
+                    <div class="regis enroll">注册</div>
+                </div>
+                <div class="attention">注意：需要登录以后才能存储音乐到账号,账号之间存储的数据互不影响,不过最多只能同时存在3个账号。</div>
+            </div>
+            <div class="reg-boz">
+                <div class="reg-return">
+                    <i class="iconfont icon-iconfont552cc14536532"></i>
+                    <em>返回登录</em>
+                </div>
+                <div class="reg-enter">
+                    <div class="reglist">
+                        <div class="regshink">
+                            <ul>
+                                <!--<li>-->
+                                    <!--<span></span>-->
+                                    <!--<em>1111</em>-->
+                                <!--</li>-->
+                                <!--<li>-->
+                                    <!--<span></span>-->
+                                    <!--<em>2222</em>-->
+                                <!--</li>-->
+                                <!--<li>-->
+                                    <!--<span></span>-->
+                                    <!--<em>3333</em>-->
+                                <!--</li>-->
+                            </ul>
+                        </div>
+                        <div class="regtext regport">
+                            <input type="text">
+                            <em>用户名</em>
+                            <button class="regbtn">
+                                <i class="iconfont icon-shou"></i>
+                            </button>
+                        </div>
+                        <div class="regword regport">
+                            <input type="password">
+                            <em>用户密码</em>
+                        </div>
+                    </div>
+                    <div class="clickroll">登录</div>
+                </div>
+                <div class="reg-enroll">
+                    <div class="portrait">
+                        <span>选择头像:</span>
+                        <ul>
+                            <li class="li1"></li>
+                            <li class="li2"></li>
+                            <li class="li3"></li>
+                            <li class="li4"></li>
+                            <li class="li5"></li>
+                        </ul>
+                    </div>
+                    <div class="reglist">
+                        <div class="regtext">
+                            <input type="text">
+                            <em>用户名</em>
+                        </div>
+                        <div class="regword">
+                            <input type="password">
+                            <em>用户密码</em>
+                        </div>
+                        <div class="regword">
+                            <input type="password">
+                            <em>确认密码</em>
+                        </div>
+                    </div>
+                    <div class="clickroll">注册</div>
+                </div>
+            </div>
+            <div class="reg-delete">
+                <i class="iconfont icon-chuyidong"></i>
+            </div>
+            <div class="reg-alert">请输入密码</div>
+        </div>
+        <!-- 注册登录 end -->
+
+        <!-- 提示弹窗 -->
+        <div id="hintalert"></div>
+    </div>
+
+    <!-- 加载遮盖层 -->
+    <div class="bgbon" id="bon">
+        <div class="bon">
+            <div class="qiu"></div>
+            <div class="yin"></div>
+            <div class="listload">正在加载中...</div>
+        </div>
+    </div>
+
+    <!--audio 音乐播放 -->
+    <audio id="audio"></audio>
+    <script src="js/index.js"></script>
+</body>
+</html>
