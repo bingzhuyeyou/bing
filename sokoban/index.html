@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="Author" content="Fly">
+    <title>Title</title>
+    <style>
+        *{ margin: 0; padding: 0; font-family:Microsoft yahei,serif;}
+        li{ list-style:none;}
+        #box{
+            position: relative;
+            width: 1000px;
+            height: 750px;
+            margin: 50px auto 0;
+        }
+        #box>div{
+            float: left;
+            width: 50px;
+            height: 50px;
+            box-shadow: 1px 1px 6px rgba(0,0,0,.6);
+            background: #000 no-repeat;
+            background-size: cover;
+        }
+        #box #wrap{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 1000px;
+            height: 750px;
+            background-color: transparent;
+            z-index: 21;
+        }
+        #box #wrap>.shadow{
+            position: absolute;
+            left: 0;
+            top: 0;
+            background-color: #fff;
+            width: 50px;
+            height: 50px;
+            transform-origin: left bottom;
+            /*box-shadow: 1px 1px 6px rgba(0,0,0,.6),-1px -1px 6px rgba(0,0,0,.6);*/
+        }
+        #box .figure{
+            position: absolute;
+            top: 0;
+            left: 0;
+            background: transparent url("img/1_16.png") no-repeat;
+            background-size: contain;
+        }
+        #box .boxdiv{
+            position: absolute;
+            top: 0;
+            left: 0;
+            background: url("img/1_10.png") no-repeat;
+        }
+        #box .hongqiu{
+            background-image: url("img/hongqiu.jpg");
+        }
+        #load{
+            position: absolute;
+            opacity: 0;
+            display: none;
+        }
+        #box #begin {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            width: auto;
+            height: auto;
+            text-align: center;
+            background-color: red;
+            color: #fff;
+            cursor: pointer;
+            transform: translate(-50%, -50%);
+            padding: 20px;
+            z-index: 31;
+            font-weight: bold;
+            font-size: 20px;
+            border-radius: 10px;
+        }
+        #box #close{
+            display: none;
+            position: absolute;
+            top: -50px;
+            left: 50%;
+            width: 200px;
+            background-color: red;
+            line-height: 50px;
+            font-size: 24px;
+            font-weight: bold;
+            color: #fff;
+            border-radius: 5px 5px 0 0;
+            text-align: center;
+            margin-left: -100px;
+        }
+        #box #gameover{
+            display: none;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            margin-left: -100px;
+            margin-top: -100px;
+            border-radius: 5px;
+            z-index: 31;
+        }
+        #box #gameover>p{
+            width: 160px;
+            height: 40px;
+            margin: 46px auto 0;
+            border-radius: 5px;
+            background-color: #000;
+            color: #fff;
+            text-align: center;
+            line-height: 40px;
+        }
+        #box #gameover>p.p1{
+            width: 180px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        #box #gameover>p.p2{
+            width: 140px;
+            height: 30px;
+            font-size: 16px;
+            font-weight: bold;
+            line-height: 30px;
+            cursor: pointer;
+        }
+        #box #annotation{
+            position: absolute;
+            left: -30%;
+            top: 0;
+            width: 200px;
+            height: 200px;
+            background-color: #fff;
+        }
+        #box #annotation>p{
+            width: 100%;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            background-color: #05c677;
+            margin-top: 26px;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <div id="begin">开始游戏</div>
+        <div id="wrap"></div>
+        <div id="close">第几关</div>
+        <div id="gameover">
+            <p class="p1">游戏以通关</p>
+            <p class="p2">重新开始</p>
+        </div>
+        <div id="annotation">
+            <p>操作</p>
+            <p>x键回退</p>
+            <p>移动键，上,下,左,右键</p>
+        </div>
+    </div>
+    <!--图片预加载-->
+    <div id="load">
+        <img src="img/zhuan1.jpg" alt="">
+        <img src="img/hongqiu.jpg" alt="">
+        <img src="img/1_10.png" alt="">
+        <img src="img/1_16.png" alt="">
+        <img src="img/1_12.png" alt="">
+        <img src="img/qiu.jpg" alt="">
+        <img src="img/zhuan2.jpg" alt="">
+        <img src="img/black.png" alt="">
+    </div>
+    <script>
+        var obox = document.getElementById("box"),
+            figuer = obox.querySelector(".figure"),
+            owrap = document.getElementById("wrap"),
+            obegin = document.getElementById("begin"),
+            oclose = document.getElementById("close"),
+            ogameover = document.getElementById("gameover"),
+            gamep = ogameover.querySelector(".p2"),
+            quanW = obox.offsetWidth / 50,
+            quanH = obox.offsetHeight / 50,
+            fragment = document.createDocumentFragment(),
+            boxarr = [],
+            owrapW = owrap.offsetWidth,
+            owrapH = owrap.offsetHeight,
+            wrapsizeW = owrapW/20,
+            wrapsizeH = owrapH/20,
+            amountH = Math.ceil(20/2),
+            amountW = 20,
+            fragmentOne = document.createDocumentFragment(),
+            arr = [];
+
+        //初始化页面
+        for (var i = 0; i < quanH; i++) {
+            boxarr[i] = [];
+            for (var j = 0; j < quanW; j++) {
+                var odiv = document.createElement("div");
+                odiv.setAttribute("index",i+"+"+j);
+                fragment.appendChild(odiv);
+                boxarr[i][j] = odiv;
+            }
+        }
+        obox.appendChild(fragment);
+
+        //遮盖层的动画设置
+        for (var i = 0; i < amountH; i++) {
+            amountW--;
+            //生成四个方向的div
+            for (var a = 0; a < amountW; a++) {
+                auto(i*wrapsizeH,(i*wrapsizeW)+(a*wrapsizeW));
+            }
+            for (var b = 0; b < amountW; b++) {
+                auto((i*wrapsizeH)+(b*wrapsizeH),(owrapW-wrapsizeW)-i*wrapsizeW);
+            }
+            for (var c = 0; c < amountW; c++) {
+                auto((owrapH - wrapsizeH)-(i*wrapsizeH),((owrapW - wrapsizeW) - (c*wrapsizeW)) - wrapsizeW * i);
+            }
+            for (var d = 0; d < amountW; d++) {
+                auto(((owrapH - wrapsizeH) - d*wrapsizeH) - i*wrapsizeH,wrapsizeW*i)
+            }
+            amountW--;
+        }
+        owrap.appendChild(fragmentOne);
+        function auto(top,left){
+            var odiv = document.createElement("div");
+            odiv.className = "shadow";
+            odiv.style.backgroundColor = "#FFF";
+            odiv.style.left = left+"px";
+            odiv.style.top = top+"px";
+            odiv.style.width = wrapsizeW+"px";
+            odiv.style.height = wrapsizeH+"px";
+            fragmentOne.appendChild(odiv);
+            arr.push(odiv);
+        }
+
+        function Sokoban(box,arr,figuer){
+            this.arr = arr;
+            this.box = box;
+            this.back = ["url('img/black.png')","url('img/zhuan1.jpg')","url('img/zhuan2.jpg')","url('img/zhuan2.jpg')","url('img/qiu.jpg')","url('img/zhuan2.jpg')","url('img/qiu.jpg')","url('img/qiu.jpg')"];
+            this.customs = 0;   //设置当前第几关
+            this.figuer = null;
+            this.figjson = null;
+            this.storage = {};  //储存箱子坐标
+            this.callback = []; //储存回退的坐标
+            this.passtest = []; //储存最终的坐标
+            this.person = null; //储存推箱子人物的坐标
+            this.setmapLength = 0;
+        }
+        Sokoban.prototype = {
+            init: function(){
+                this.startgame();
+                this.kewdown();
+            },
+            //生成游戏界面
+            startgame: function(){
+                var This = this;
+                var oarr = this.sitemap(this.customs);
+                var fragment = document.createDocumentFragment();
+                this.figjson = oarr;
+                oclose.style.display = "block";
+                oclose.innerHTML = "第"+(this.customs+1)+"关";
+                oarr.forEach(function(vaI,dexI){
+                    vaI.forEach(function(vaJ,dexJ){
+                        var oxy = dexI+"-"+dexJ;
+                        //初始化箱子的坐标
+                        if (vaJ === 3 || vaJ === 6){
+                            var odiv = document.createElement("div");
+                            odiv.className = "boxdiv";
+                            odiv.style = "top:"+(dexI*50)+"px;left:"+(dexJ*50)+"px;";
+                            fragment.appendChild(odiv);
+                            This.storage[oxy] = odiv;           //存储箱子和箱子的周标
+                            This.figjson[dexI][dexJ] = 2;
+                            if(vaJ === 6){
+                                odiv.classList.add("hongqiu");
+                            }
+                        }
+                        //初始化推箱子人物的坐标
+                        if(vaJ === 5 || vaJ === 7){
+                            var fig = document.createElement("div");
+                            fig.className = "figure";
+                            fig.style = "top:"+(50*dexI)+"px;left:"+(50*dexJ)+"px;";
+                            obox.appendChild(fig);
+                            This.person = {x: dexJ,y: dexI};
+                            This.figjson[dexI][dexJ] = 2;
+                            This.figuer = fig;
+                        }
+                        //初始化目标黑球的坐标
+                        if(vaJ === 4 || vaJ === 6 || vaJ === 7){
+                            This.passtest.push(oxy);        //储存黑球的坐标
+                            This.figjson[dexI][dexJ] = 2;
+                        }
+                        //渲染游戏界面
+                        This.arr[dexI][dexJ].style.backgroundImage = This.back[vaJ];
+                    });
+                });
+                this.box.appendChild(fragment);
+                return this.oversperad();
+            },
+            //初始化遮盖层，和遮盖层的动画
+            oversperad: function(){
+                arr.forEach(function(value){
+                    value.style.transform = "rotateX(0deg)";
+                });
+                arr.forEach(function(value,index){
+                    setTimeout(function(){
+                        var timer = null;
+                        var time = new Date();
+                        (function ato(){
+                            var porp = (new Date() - time)/2000;
+                            if(porp >= 1){
+                                cancelAnimationFrame(timer);
+                                value.style.transform = "rotateX(90deg)"
+                            }else{
+                                value.style.transform = "rotateX("+porp*90+"deg)";
+                                timer = requestAnimationFrame(ato);
+                            }
+                        })();
+                    },15*index)
+                });
+            },
+            //键盘事件
+            kewdown: function(){
+                var This = this;
+                document.onkeydown = function(e){
+                    var keyCode = {
+                        "37": {x : -1},
+                        "38": {y : -1},
+                        "39": {x : 1},
+                        "40": {y : 1},
+                    };
+                    if(This.person){
+                        if (e.keyCode === 88){
+                            //x键回退
+                            This.rollback.call(This);
+                        }else if(keyCode[e.keyCode]){
+                            This.execute.call(This,keyCode[e.keyCode]);
+                        }
+                    }
+                    e.preventDefault();
+                }
+            },
+            //判断箱子移动是否符合规范，符合就让他移动，不符合就阻止移动
+            execute: function(e){
+                var figjson = this.person,This = this;
+                var ox = e.x || 0, oy = e.y || 0;
+                var oxx = ox + figjson.x;
+                var oyy = oy + figjson.y;
+                var judeg = false;
+                var bool = This.figjson[oyy][oxx]; //判断移动以后是不是墙壁
+                if (bool === 1 || bool === 0)return;                //如果前面直接是墙壁，就不让后面的代码执行了
+
+                //判断移动的前面是不是箱子
+                var boxOne = this.storage[oyy+"-"+oxx];
+                if(boxOne){
+                    var y = oyy + oy,x = oxx + ox;
+                    var boolbox = this.storage[y+"-"+x]; //判断箱子前面是不是还是箱子
+                    if((!boolbox) && This.figjson[y][x] === 2){
+                        judeg = true;
+                        //存储回退的值
+                        var ojson = JSON.parse(JSON.stringify(this.storage));
+                        var oarr = JSON.parse(JSON.stringify(this.person));
+                        this.callback.push([ojson,oarr]);   //存入回退的数组
+                        this.storage[y+"-"+x] = boxOne;     //把箱子存储在移动以后的坐标下
+                        delete this.storage[oyy+"-"+oxx];   //删除上一次箱子移动的坐标
+                        boxOne.style = "top:"+(y*50)+"px;left:"+(x*50)+"px;";
+                    }else{
+                        return; //如果箱子前面是墙壁或者箱子，就不让他移动
+                    }
+                }
+                figjson.y += oy;
+                figjson.x += ox;
+                this.figuer.style.top = figjson.y * 50 +"px";
+                this.figuer.style.left = figjson.x * 50 +"px";
+                if(judeg){
+                    //检查箱子是否在黑球上
+                    return this.succedJudge();
+                }
+            },
+            //查看箱子是否在最终的坐标上
+            succedJudge: function(){
+                var This = this,boxJudeg = true;
+                var oboxdiv = document.querySelectorAll(".boxdiv");
+                oboxdiv.forEach(function(value){
+                    value.classList.remove("hongqiu");
+                });
+                this.passtest.forEach(function(ovalue){
+                    //箱子在黑球的坐标上的话，添加hongqiu样式
+                    var val = This.storage[ovalue];
+                    if(val){
+                        val && val.classList.add("hongqiu");
+                    }else{
+                        boxJudeg = false;
+                    }
+                });
+                //判断箱子是否都在黑球上面了。
+                if(boxJudeg){
+                    //清空储存的信息
+                    this.figjson = null;
+                    this.storage = {};  //储存箱子坐标
+                    this.callback = []; //储存回退的坐标
+                    this.passtest = []; //储存最终的坐标
+                    this.person = null; //清空人物的坐标
+                    this.customs++;
+                    setTimeout(function(){
+                        //清除上一关的箱子
+                        oboxdiv.forEach(function(value){
+                            This.box.removeChild(value);
+                        });
+                        //清除上一关的人物
+                        This.box.removeChild(This.figuer);
+                        This.figuer = null;
+                        if((This.customs%This.setmapLength) === 0){
+                            oclose.innerHTML = "通关";
+                            ogameover.style.display = "block";
+                            This.customs = 0;
+                        }else{
+                            return This.startgame();
+                        }
+                    },500);
+                }
+            },
+            //x键回退
+            rollback : function(){
+                if (this.callback[0]){
+                    var oboxdiv = document.querySelectorAll(".boxdiv");
+                    var length = this.callback.length;
+                    var callba = this.callback[length-1];
+                    var arr = [],This = this;
+                    //分机箱子储存的坐标
+                    for (var key in callba[0]){
+                        arr.push(key.split("-"));
+                    }
+                    this.storage = {};
+                    //回到上一次箱子的坐标，和从新设置箱子的坐标
+                    oboxdiv.forEach(function(value,index){
+                        var oy = arr[index][0],ox = arr[index][1];
+                        value.style = "top:"+(oy*50)+"px;left:"+(ox*50)+"px;";  //重新设置箱子的坐标
+                        This.storage[oy+"-"+ox] = value;                        //重新储存箱子的坐标
+                    });
+                    //回到上一次人物的坐标，和重新设置人物的坐标
+                    this.figuer.style = "top:"+(callba[1].y*50)+"px;left:"+(callba[1].x*50)+"px;";
+                    this.person = {x:callba[1].x,y:callba[1].y};                //回退到上一次推动箱子的时候
+                    this.callback.splice(length-1,1);                           //删除上一次的储存的坐标
+
+                    //重新调用判断是否在箱子最终的坐标
+                    return this.succedJudge();
+                }
+            },
+            //关卡地图
+            sitemap: function(num){
+                //     0：代表黑色的背景  1：代表墙  2：代表蓝色的砖块  3：代表箱子的位置
+                //     4: 黑球箱子的目标位置    5：代表人物位置  6,代表黑球和箱子的位置在一起
+                //     7: 代表黑球和人物的位置在一起
+                //     注意：按照这些，可以自己设置地图玩
+                var maparr = [
+                    [    //关卡1的地图
+                        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                        [0,0,0,0,0,0,0,0,1,1,1,0,0,0,0,0,0,0,0,0],
+                        [0,0,0,0,0,0,0,0,1,4,1,0,0,0,0,0,0,0,0,0],
+                        [0,0,0,0,0,0,0,0,1,2,1,1,1,1,0,0,0,0,0,0],
+                        [0,0,0,0,0,0,1,1,1,3,2,3,4,1,0,0,0,0,0,0],
+                        [0,0,0,0,0,0,1,4,2,3,5,1,1,1,0,0,0,0,0,0],
+                        [0,0,0,0,0,0,1,1,1,1,3,1,0,0,0,0,0,0,0,0],
+                        [0,0,0,0,0,0,0,0,0,1,4,1,0,0,0,0,0,0,0,0],
+                        [0,0,0,0,0,0,0,0,0,1,1,1,0,0,0,0,0,0,0,0],
+                        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+                    ],
+                    [   //关卡2的地图
+                        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                        [0,0,0,0,0,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0],
+                        [0,0,0,0,0,1,5,2,2,1,0,0,0,0,0,0,0,0,0,0],
+                        [0,0,0,0,0,1,2,3,3,1,0,1,1,1,0,0,0,0,0,0],
+                        [0,0,0,0,0,1,2,3,2,1,0,1,4,1,0,0,0,0,0,0],
+                        [0,0,0,0,0,1,1,1,2,1,1,1,4,1,0,0,0,0,0,0],
+                        [0,0,0,0,0,0,1,1,2,2,2,2,4,1,0,0,0,0,0,0],
+                        [0,0,0,0,0,0,1,2,2,2,1,2,2,1,0,0,0,0,0,0],
+                        [0,0,0,0,0,0,1,2,2,2,1,1,1,1,0,0,0,0,0,0],
+                        [0,0,0,0,0,0,1,1,1,1,1,0,0,0,0,0,0,0,0,0],
+                        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+                    ],
+                    [   //关卡3的地图
+                        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                        [0,0,0,0,0,0,1,1,1,1,1,1,1,0,0,0,0,0,0,0],
+                        [0,0,0,0,0,0,1,2,2,2,2,2,1,1,1,0,0,0,0,0],
+                        [0,0,0,0,0,1,1,3,1,1,1,2,2,2,1,0,0,0,0,0],
+                        [0,0,0,0,0,1,2,2,2,3,5,2,3,2,1,0,0,0,0,0],
+                        [0,0,0,0,0,1,2,4,4,1,2,3,2,1,1,0,0,0,0,0],
+                        [0,0,0,0,0,1,1,4,4,1,2,2,2,1,0,0,0,0,0,0],
+                        [0,0,0,0,0,0,1,1,1,1,1,1,1,1,0,0,0,0,0,0],
+                        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+                    ],
+                    [   //关卡4的地图
+                        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                        [0,0,0,0,0,0,0,0,1,1,1,1,0,0,0,0,0,0,0,0],
+                        [0,0,0,0,0,0,0,1,1,2,2,1,0,0,0,0,0,0,0,0],
+                        [0,0,0,0,0,0,0,1,5,3,2,1,0,0,0,0,0,0,0,0],
+                        [0,0,0,0,0,0,0,1,1,3,2,1,1,0,0,0,0,0,0,0],
+                        [0,0,0,0,0,0,0,1,1,2,3,2,1,0,0,0,0,0,0,0],
+                        [0,0,0,0,0,0,0,1,4,3,2,2,1,0,0,0,0,0,0,0],
+                        [0,0,0,0,0,0,0,1,4,4,6,4,1,0,0,0,0,0,0,0],
+                        [0,0,0,0,0,0,0,1,1,1,1,1,1,0,0,0,0,0,0,0],
+                        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+                    ],
+                    [   //关卡5的地图
+                        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                        [0,0,0,0,0,0,0,1,1,1,1,1,0,0,0,0,0,0,0,0],
+                        [0,0,0,0,0,0,0,1,2,5,1,1,1,0,0,0,0,0,0,0],
+                        [0,0,0,0,0,0,0,1,2,3,2,2,1,0,0,0,0,0,0,0],
+                        [0,0,0,0,0,0,1,1,1,2,1,2,1,1,0,0,0,0,0,0],
+                        [0,0,0,0,0,0,1,4,1,2,1,2,2,1,0,0,0,0,0,0],
+                        [0,0,0,0,0,0,1,4,3,2,2,1,2,1,0,0,0,0,0,0],
+                        [0,0,0,0,0,0,1,4,2,2,2,3,2,1,0,0,0,0,0,0],
+                        [0,0,0,0,0,0,1,1,1,1,1,1,1,1,0,0,0,0,0,0],
+                        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+                    ],
+                    [   //关卡6的地图
+                        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                        [0,0,0,0,0,0,0,1,1,1,1,1,1,1,0,0,0,0,0,0],
+                        [0,0,0,0,1,1,1,1,2,2,2,2,2,1,0,0,0,0,0,0],
+                        [0,0,0,0,1,2,2,2,4,1,1,1,2,1,0,0,0,0,0,0],
+                        [0,0,0,0,1,2,1,2,1,2,2,2,2,1,1,0,0,0,0,0],
+                        [0,0,0,0,1,2,1,2,3,2,3,1,4,2,1,0,0,0,0,0],
+                        [0,0,0,0,1,2,1,2,2,6,2,2,1,2,1,0,0,0,0,0],
+                        [0,0,0,0,1,2,4,1,3,2,3,2,1,2,1,0,0,0,0,0],
+                        [0,0,0,0,1,1,2,2,2,2,1,2,1,2,1,1,1,0,0,0],
+                        [0,0,0,0,0,1,2,1,1,1,4,2,2,2,2,5,1,0,0,0],
+                        [0,0,0,0,0,1,2,2,2,2,2,1,1,2,2,2,1,0,0,0],
+                        [0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0],
+                        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+                    ],
+                    [   //关卡7的地图
+                        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                        [0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,0,0,0,0,0],
+                        [0,0,0,0,0,0,0,1,1,2,2,1,2,5,1,0,0,0,0,0],
+                        [0,0,0,0,0,0,0,1,2,2,2,1,2,2,1,0,0,0,0,0],
+                        [0,0,0,0,0,0,0,1,3,2,3,2,3,2,1,0,0,0,0,0],
+                        [0,0,0,0,0,0,0,1,2,3,1,1,2,2,1,0,0,0,0,0],
+                        [0,0,0,0,0,1,1,1,2,3,2,1,2,1,1,0,0,0,0,0],
+                        [0,0,0,0,0,1,4,4,4,4,4,2,2,1,0,0,0,0,0,0],
+                        [0,0,0,0,0,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0],
+                        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+                    ],
+                    [   //关卡8的地图
+                        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                        [0,0,0,0,0,0,0,0,1,1,1,1,1,1,0,0,0,0,0,0],
+                        [0,0,0,0,0,0,1,1,1,2,2,2,2,1,0,0,0,0,0,0],
+                        [0,0,0,0,0,1,1,4,2,3,1,1,2,1,1,0,0,0,0,0],
+                        [0,0,0,0,0,1,4,4,3,2,3,2,2,5,1,0,0,0,0,0],
+                        [0,0,0,0,0,1,4,4,2,3,2,3,2,1,1,0,0,0,0,0],
+                        [0,0,0,0,0,1,1,1,1,1,1,2,2,1,0,0,0,0,0,0],
+                        [0,0,0,0,0,0,0,0,0,0,1,1,1,1,0,0,0,0,0,0],
+                        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+                    ],
+                    [   //关卡9的地图
+                        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                        [0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,0,0,0,0,0],
+                        [0,0,0,0,0,0,1,2,2,1,1,2,2,2,1,0,0,0,0,0],
+                        [0,0,0,0,0,0,1,2,2,2,3,2,2,2,1,0,0,0,0,0],
+                        [0,0,0,0,0,0,1,3,2,1,1,1,2,3,1,0,0,0,0,0],
+                        [0,0,0,0,0,0,1,2,1,4,4,4,1,2,1,0,0,0,0,0],
+                        [0,0,0,0,0,1,1,2,1,4,4,4,1,2,1,1,0,0,0,0],
+                        [0,0,0,0,0,1,2,3,2,2,3,2,2,3,2,1,0,0,0,0],
+                        [0,0,0,0,0,1,2,2,2,2,2,1,2,5,2,1,0,0,0,0],
+                        [0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0],
+                        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+                    ],
+                    [   //关卡10的地图
+                        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                        [0,0,0,0,0,0,0,0,1,1,1,1,1,1,0,0,0,0,0,0],
+                        [0,0,0,0,0,0,0,0,1,2,2,2,2,1,0,0,0,0,0,0],
+                        [0,0,0,0,0,0,1,1,1,3,3,3,2,1,0,0,0,0,0,0],
+                        [0,0,0,0,0,0,1,5,2,3,4,4,2,1,0,0,0,0,0,0],
+                        [0,0,0,0,0,0,1,2,3,4,4,4,1,1,0,0,0,0,0,0],
+                        [0,0,0,0,0,0,1,1,1,1,2,2,1,0,0,0,0,0,0,0],
+                        [0,0,0,0,0,0,0,0,0,1,1,1,1,0,0,0,0,0,0,0],
+                        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+                    ],
+                    [   //关卡11的地图
+                        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                        [0,0,0,0,0,1,1,1,1,0,0,1,1,1,1,1,0,0,0,0],
+                        [0,0,0,0,1,1,2,2,1,0,0,1,2,2,2,1,0,0,0,0],
+                        [0,0,0,0,1,2,3,2,1,1,1,1,3,2,2,1,0,0,0,0],
+                        [0,0,0,0,1,2,2,3,4,7,4,4,2,3,2,1,0,0,0,0],
+                        [0,0,0,0,1,1,2,2,2,2,1,2,2,2,1,1,0,0,0,0],
+                        [0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0],
+                        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+                    ],
+                    [   //关卡12的地图
+                        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                        [0,0,0,0,0,0,0,0,1,1,1,1,1,0,0,0,0,0,0,0],
+                        [0,0,0,0,0,0,1,1,1,2,2,5,1,0,0,0,0,0,0,0],
+                        [0,0,0,0,0,0,1,2,2,3,4,2,1,1,0,0,0,0,0,0],
+                        [0,0,0,0,0,0,1,2,2,4,3,4,2,1,0,0,0,0,0,0],
+                        [0,0,0,0,0,0,1,1,1,2,6,3,2,1,0,0,0,0,0,0],
+                        [0,0,0,0,0,0,0,0,1,2,2,2,1,1,0,0,0,0,0,0],
+                        [0,0,0,0,0,0,0,0,1,1,1,1,1,0,0,0,0,0,0,0],
+                        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+                    ],
+                ];
+                this.setmapLength = maparr.length;
+                return maparr[num];
+            }
+        };
+        var sokoban = new Sokoban(obox,boxarr,figuer);
+        obegin.addEventListener("click",function(){
+            obegin.style.display = "none";
+            return sokoban.init();
+        });
+        gamep.addEventListener("click",function(){
+            ogameover.style.display = "none";
+            return sokoban.init();
+        });
+    </script>
+</body>
+</html>
